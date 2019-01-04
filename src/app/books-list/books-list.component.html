@@ -1,0 +1,44 @@
+<div class="outer-main-container" >
+  
+  <div class="border-list" *ngFor="let book of dataBook | orderBy: order | paginate: {itemsPerPage: 5, currentPage: p }; let i = index;">
+    <div class="inner-contianer">
+       
+      <div> 
+        <h3>{{book.name | titlecase }}</h3>
+        <input class="input-bottom" *ngIf='book.edit' type="text" value={{book.name}} (input)='valueChanger($event,book.id)'>
+      </div>
+      <div >
+        <h5 style="font-weight:bold;">Author:{{book.author | titlecase }}</h5>
+        <input class="input-bottom" *ngIf='book.edit' value={{book.author}} type="text" (input)='valueAuthorChanger($event,book.id)'>
+      </div>
+    </div>
+    <div class="inner-contianer">
+        <div> 
+          <h5>Number of Pages: {{book.numberOfPages}}</h5>
+        <input class="input-bottom" *ngIf='book.edit' value={{book.numberOfPages}} type="text" (input)='valuePagesChanger($event,book.id)'>
+
+        </div>
+        <div>
+            <h5>Date of Publication: {{book.dateOfPublication}}</h5>
+        <input class="input-bottom" style="width: 100%;" *ngIf='book.edit' value={{book.dateOfPublication}} type="text" (input)='valuePublicationChanger($event,book.id)'>
+        </div>
+    </div>
+    <div style="text-align: center;">
+ 
+      <button (click)="onEdit(book.id)" class="primary" *ngIf='!book.edit'>Edit</button>
+      <div>
+        <br>
+      <button (click)='onSave(book.id)' class="success"  *ngIf='book.edit'>Save</button>
+      <button (click)='onCancel(book.id)' *ngIf='book.edit' class="danger">Cancel</button>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<div style="text-align: center;">
+  <pagination-controls class="myPagination"
+    (pageChange) ='p = $event'>
+  </pagination-controls>
+  
+</div>
+

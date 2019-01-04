@@ -1,0 +1,39 @@
+.outer-main-container{
+    width: 30%;
+    margin: auto;
+    margin-top: 40px; 
+}
+
+.inner-contianer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.border-list{
+    border: 1px solid #000;
+    margin: 10px 0;
+}
+.primary{
+    background-color: #0062cc;
+    padding: 10px 30px;
+    border: 1px solid #0062cc;
+    color: white;
+}
+.success{
+    background-color: #1e7e34;
+    padding: 10px 30px;
+    border: 1px solid #1c7430;
+    color: white;
+}
+.danger{
+    background-color: #bd2130;
+    padding: 10px 30px;
+    color: #fff;
+    border: 1px solid #b21f2d; 
+    margin: 0 10px;
+}
+.input-bottom{
+    border: none;
+    border-bottom: 1px solid #aaaaaa;
+}
